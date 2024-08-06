@@ -20,7 +20,14 @@ const Navbar = () => {
       {status === 'loading' && (
         <span className="loading loading-spinner loading-sm"></span>
       )}
-      {status === 'authenticated' && <p>{data.user!.name}</p>}
+      {status === 'authenticated' && (
+        <div>
+          {data.user!.name}{' '}
+          <Link className="ml-6" href="/api/auth/signout">
+            Sign Out
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };
