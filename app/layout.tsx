@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Navbar from './Navbar';
 import AuthProvider from './api/auth/Provider';
+import Image from 'next/image';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,7 +22,16 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthProvider>
           <Navbar />
-          <main className="p-5">{children}</main>
+          <main className="p-5">
+            <Image
+              src="https://bit.ly/react-cover"
+              width={300}
+              height={150}
+              quality={100}
+              alt="react cover"
+            />
+            {children}
+          </main>
         </AuthProvider>
       </body>
     </html>
